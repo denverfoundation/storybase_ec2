@@ -44,12 +44,23 @@ git clone https://github.com/zmetcalf/storybase_solr.git
 # Create a postgres floodlight user
 #
 
-sudo psql createuser --superuser floodlight
-sudo psql mydatabasename -c "CREATE EXTENSION postgis";
+sudo useradd floodlight
+sudo passwd floodlight
 
-sudo psql createdb floodlight
+sudo su - postgres
+psql template1
+CREATE USER floodlight WITH PASSWORD 'floodlight';
+CREATE DATABASE floodlight;
+GRANT ALL PRIVILEGES ON DATABASE floodlight to floodlight;
+\q
 
-sudo psql floodlight -c "CREATE EXTENSION postgis";
+su - floodlight
+psql -d floodlight -U floodlight
+CREATE EXTENSION postgis;
+\q
+
+exit
+
 
 
 #
@@ -62,6 +73,8 @@ sudo /etc/init.d/postgresql restart
 #
 # Copy config files
 #
+
+cd ~/storybase_ec2
 
 cp gunicorn.conf.py /home/admin/www/floodlight
 sudo cp supervisor/floodlight.conf /etc/supervisor/conf.d
