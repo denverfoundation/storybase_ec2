@@ -3,13 +3,15 @@
 # First thing is to create an EC2 instance. You need a community AMI for Debian.
 # Make sure the image doesn't have "testing" in the name.  Then log in to the instance.
 
+# Run this with /bin/bash install.sh
+
 #
 # Install prerequisites
 #
 
 sudo apt-get update
 sudo apt-get upgrade
-sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev postgresql-common python-dev postgresql-client postgresql postgresql-contrib postgis git openjdk-7-jre-headless unzip python-memcache libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev supervisor nginx
+sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev libxslt1-dev libxml2-dev postgresql-common python-dev postgresql-client postgresql postgresql-contrib postgis git openjdk-7-jre-headless unzip python-memcache libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev supervisor nginx build-essential
 
 #
 # Get the floodlight code
@@ -29,10 +31,12 @@ git clone https://github.com/zmetcalf/storybase.git floodlight
 cd ~/www/floodlight
 git fetch
 git checkout zm_local_install
+
 virtualenv ~/virt_env/storybase
 source ~/virt_env/storybase/bin/activate
 pip install -r requirements.txt
 pip install gunicorn
+
 cd ~/www
 git clone https://github.com/zmetcalf/storybase_solr.git
 
@@ -40,16 +44,12 @@ git clone https://github.com/zmetcalf/storybase_solr.git
 # Create a postgres floodlight user
 #
 
-sudo su - postgres
-createuser --superuser floodlight
-psql
-\password floodlight # floodlight
-psql mydatabasename -c "CREATE EXTENSION postgis";
+sudo psql createuser --superuser floodlight
+sudo psql mydatabasename -c "CREATE EXTENSION postgis";
 
-sudo -u postgres createdb floodlight
+sudo psql createdb floodlight
 
 sudo psql floodlight -c "CREATE EXTENSION postgis";
-exit
 
 
 #
