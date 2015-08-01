@@ -16,7 +16,7 @@ sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev postgr
 #
 
 mkdir -p ~/www
-sudo mkdir -p ~/virt_env
+mkdir -p ~/virt_env
 cd ~/www
 
 git clone https://github.com/zmetcalf/storybase.git floodlight
@@ -49,7 +49,7 @@ psql mydatabasename -c "CREATE EXTENSION postgis";
 sudo -u postgres createdb floodlight
 
 sudo psql floodlight -c "CREATE EXTENSION postgis";
-
+exit
 
 
 #
@@ -57,7 +57,6 @@ sudo psql floodlight -c "CREATE EXTENSION postgis";
 #
 
 sudo /etc/init.d/postgresql restart
-sudo su - postgres
 
 
 #
