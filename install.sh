@@ -47,21 +47,10 @@ git clone https://github.com/zmetcalf/storybase_solr.git
 sudo useradd floodlight
 sudo passwd floodlight
 
-sudo su - postgres
-psql template1
-CREATE USER floodlight WITH PASSWORD 'floodlight';
-CREATE DATABASE floodlight;
-GRANT ALL PRIVILEGES ON DATABASE floodlight to floodlight;
-\q
+sudo su - postgres -c "/home/admin/stortybase_ec2/db_setup.sh"
 
 su - floodlight
-psql -d floodlight -U floodlight
-CREATE EXTENSION postgis;
-\q
-
-exit
-
-
+su - floodlight -c "/home/admin/stortybase_ec2/db_floodlight.sh"
 
 #
 # Restart postgresql
