@@ -45,8 +45,11 @@ git clone https://github.com/zmetcalf/storybase_solr.git
 sudo useradd floodlight
 sudo passwd floodlight
 
-sudo chown postgres /home/admin/storybase_ec2/db_setup.sh
-sudo chown floodlight /home/admin/storybase_ec2/db_floodlight.sh
+cp /home/admin/storybase_ec2/db_setup.sh /tmp
+cp /home/admin/storybase_ec2/db_floodlight.sh /tmp
+
+sudo chown postgres:postgres /tmp/db_setup.sh
+sudo chown floodlight:floodlight /tmp/db_floodlight.sh
 
 sudo su - postgres -c "/home/admin/storybase_ec2/db_setup.sh"
 
