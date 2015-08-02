@@ -29,9 +29,11 @@ git clone https://github.com/zmetcalf/storybase.git floodlight
 cd ~/www/floodlight
 git fetch
 git checkout zm_local_install
+
 mkdir floodlight
 cp /home/admin/storybase_ec2/wsgi.py floodlight
 touch /home/admin/floodlight/__init__.py
+cp /home/admin/floodlight/settings/default.py /home/admin/floodlight/floodlight/settings.py
 
 virtualenv ~/virt_env/storybase
 source ~/virt_env/storybase/bin/activate
@@ -61,6 +63,7 @@ sudo su - postgres -c "sh /tmp/db_setup.sh"
 sudo /etc/init.d/postgresql restart
 
 cd /home/admin/www/floodlight
+
 python manage.py syncdb
 python manage.py migrate
 
