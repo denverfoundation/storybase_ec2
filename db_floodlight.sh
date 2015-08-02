@@ -1,5 +1,3 @@
-psql -d floodlight -U floodlight
-CREATE EXTENSION postgis;
-\q
+psql -d floodlight -U floodlight -c "CREATE EXTENSION postgis"
 
 exit
