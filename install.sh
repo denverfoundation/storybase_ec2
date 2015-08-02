@@ -30,11 +30,13 @@ cd ~/www/floodlight
 git fetch
 git checkout zm_local_install
 
+cd floodlight
 mkdir floodlight
-cp /home/admin/storybase_ec2/wsgi.py floodlight
-touch /home/admin/floodlight/__init__.py
-cp /home/admin/floodlight/settings/default.py /home/admin/floodlight/floodlight/settings.py
+cp ~/storybase_ec2/wsgi.py floodlight
+touch ~/www/floodlight/floodlight/__init__.py
+cp ~/www/floodlight/settings/default.py ~/www/floodlight/floodlight/settings.py
 
+cd ~/www/floodlight
 virtualenv ~/virt_env/storybase
 source ~/virt_env/storybase/bin/activate
 pip install -r requirements.txt
