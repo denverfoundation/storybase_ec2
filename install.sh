@@ -18,6 +18,7 @@ sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev libxsl
 mkdir -p ~/www
 mkdir -p ~/virt_env
 cd ~/www
+mkdir static media
 
 git clone https://github.com/zmetcalf/storybase.git floodlight
 
@@ -34,8 +35,8 @@ cd floodlight
 mkdir floodlight
 cp ~/storybase_ec2/wsgi.py floodlight
 touch ~/www/floodlight/floodlight/__init__.py
-cp ~/www/floodlight/settings/defaults.py ~/www/floodlight/floodlight/settings.py
-cp ~/www/floodlight/settings/defaults.py ~/www/floodlight/settings/dev.py
+cp ~/storybase_ec2/settings.py ~/www/floodlight/floodlight/settings.py
+cp ~/storybase_ec2/settings.py ~/www/floodlight/settings/dev.py
 
 cd ~/www/floodlight
 virtualenv ~/virt_env/storybase
@@ -67,6 +68,7 @@ sudo /etc/init.d/postgresql restart
 
 cd /home/admin/www/floodlight
 
+python manage.py collectstatic
 python manage.py syncdb
 python manage.py migrate
 
@@ -82,6 +84,7 @@ sudo cp supervisor/floodlight_solr.conf /etc/supervisor/conf.d
 sudo cp nginx/floodlight /etc/nginx/sites-available
 
 sudo ln -s /etc/nginx/sites-available/floodlight /etc/nginx/sites-enabled/floodlight
+sudo rm /etc/nginx/sites-enabled/default
 
 sudo service nginx restart
 sudo service supervisor restart

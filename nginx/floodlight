@@ -29,11 +29,11 @@ server {
   }
 
 	location /static {
-	  alias /home/admin/www/floodlight/static;
+	  alias /home/admin/www/static;
 	}
 
 	location /media {
-	  alias /home/admin/www/floodlight/media;
+	  alias /home/admin/www/media;
 	}
 
   error_page   500 502 503 504  /50x.html;
