@@ -9,8 +9,6 @@
 # Install prerequisites
 #
 
-sudo apt-get update
-sudo apt-get upgrade
 sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev libxslt1-dev libxml2-dev postgresql-common python-dev postgresql-client postgresql postgresql-contrib postgis git openjdk-7-jre-headless unzip python-memcache libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev supervisor nginx build-essential
 
 #
@@ -47,10 +45,12 @@ git clone https://github.com/zmetcalf/storybase_solr.git
 sudo useradd floodlight
 sudo passwd floodlight
 
-sudo su - postgres -c "/home/admin/stortybase_ec2/db_setup.sh"
+sudo chown postgres /home/admin/storybase_ec2/db_setup.sh
+sudo chown floodlight /home/admin/storybase_ec2/db_floodlight.sh
 
-su - floodlight
-su - floodlight -c "/home/admin/stortybase_ec2/db_floodlight.sh"
+sudo su - postgres -c "/home/admin/storybase_ec2/db_setup.sh"
+
+su - floodlight -c "/home/admin/storybase_ec2/db_floodlight.sh"
 
 #
 # Restart postgresql
