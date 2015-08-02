@@ -21,6 +21,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
 INTERNAL_IPS = (
     '127.0.0.1',
 )
@@ -351,6 +353,9 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
+
+COMPRESS_ENABLED = False
+COMPRESS_OFFLINE = True
 
 # storybase settings
 # The name of the group used for site administrators
