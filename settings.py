@@ -12,6 +12,7 @@ sys.path.insert(0, os.path.join(PROJECT_PATH, "apps"))
 
 SECRET_KEY = 'SECRET_KEY'
 
+# TODO Switching DEBUG to False creates a complex production error.
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
