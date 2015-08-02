@@ -36,7 +36,7 @@ mkdir floodlight
 cp ~/storybase_ec2/wsgi.py floodlight
 touch ~/www/floodlight/floodlight/__init__.py
 cp ~/storybase_ec2/settings.py ~/www/floodlight/floodlight/settings.py
-cp ~/storybase_ec2/settings.py ~/www/floodlight/settings/dev.py
+cp ~/storybase_ec2/dev.py ~/www/floodlight/settings/dev.py
 
 cd ~/www/floodlight
 virtualenv ~/virt_env/storybase
