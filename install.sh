@@ -31,7 +31,6 @@ cd ~/www/floodlight
 git fetch
 git checkout zm_local_install
 
-cd floodlight
 mkdir floodlight
 cp ~/storybase_ec2/wsgi.py floodlight
 touch ~/www/floodlight/floodlight/__init__.py

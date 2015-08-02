@@ -12,8 +12,8 @@ sys.path.insert(0, os.path.join(PROJECT_PATH, "apps"))
 
 SECRET_KEY = 'SECRET_KEY'
 
-DEBUG = False
-TEMPLATE_DEBUG = False
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
