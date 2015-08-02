@@ -12,8 +12,8 @@ sys.path.insert(0, os.path.join(PROJECT_PATH, "apps"))
 
 SECRET_KEY = 'SECRET_KEY'
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+TEMPLATE_DEBUG = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -351,8 +351,6 @@ HAYSTACK_CONNECTIONS = {
 }
 
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
-
-HAYSTACK_SIGNAL_PROCESSOR = 'storybase.search.signals.RealtimeSignalProcessor'
 
 # storybase settings
 # The name of the group used for site administrators
