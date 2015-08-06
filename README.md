@@ -8,17 +8,17 @@ Login to the instance.
 Update the repositories and install git:
 
     sudo apt-get update
-    sudo apt-get install git 
+    sudo apt-get install git
     // say yes
 
 Clone this script:
 
-    git clone https://github.com/zmetcalf/storybase_ec2.git
+    git clone https://github.com/denverfoundation/storybase_ec2.git
 
 Move into the directory and start install:
 
     cd storybase_ec2
-    /bin/bash install.sh 
+    /bin/bash install.sh
     // virtualenv in script requires BASH
 
 The script will start working. You will need to input some information as

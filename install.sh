@@ -5,7 +5,7 @@
 # Login to instance
 # Run sudo apt-get update
 # Run sudo apt-get install git
-# Run git clone https://github.com/zmetcalf/storybase_ec2.git
+# Run git clone https://github.com/denverfoundation/storybase_ec2.git
 # Run cd storybase_ec2
 # Run this with /bin/bash install.sh
 
@@ -28,6 +28,7 @@ mkdir -p ~/virt_env
 cd ~/www
 mkdir static media
 
+# TODO remove when storybase is merged
 git clone https://github.com/zmetcalf/storybase.git floodlight
 
 
@@ -54,10 +55,9 @@ pip install -r requirements.txt
 pip install gunicorn
 
 # Setup Solr
-# TODO change when givin to TDF
 
 cd ~/www
-git clone https://github.com/zmetcalf/storybase_solr.git
+git clone https://github.com/denverfoundation/storybase_solr.git
 
 #
 # Create a postgres floodlight user
