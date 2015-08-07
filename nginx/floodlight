@@ -29,11 +29,11 @@ server {
   }
 
 	location /static {
-	  alias /home/admin/www/static;
+	  alias /home/ubuntu/www/static;
 	}
 
 	location /media {
-	  alias /home/admin/www/media;
+	  alias /home/ubuntu/www/media;
 	}
 
   error_page   500 502 503 504  /50x.html;

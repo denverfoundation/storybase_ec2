@@ -68,7 +68,7 @@ sudo passwd floodlight # set password as floodlight
 
 # Move db_setup script to public dir, change permissions, and run script as postgres
 
-sudo cp /home/admin/storybase_ec2/db_setup.sh /tmp
+sudo cp /home/ubuntu/storybase_ec2/db_setup.sh /tmp
 
 sudo chown postgres:postgres /tmp/db_setup.sh
 
@@ -80,7 +80,7 @@ sudo /etc/init.d/postgresql restart
 
 # Run setup of django site
 
-cd /home/admin/www/floodlight
+cd /home/ubuntu/www/floodlight
 
 python manage.py collectstatic # say yes - it is ok
 python manage.py syncdb
@@ -92,7 +92,7 @@ python manage.py migrate
 
 cd ~/storybase_ec2
 
-cp gunicorn.conf.py /home/admin/www/floodlight
+cp gunicorn.conf.py /home/ubuntu/www/floodlight
 sudo cp supervisor/floodlight.conf /etc/supervisor/conf.d
 sudo cp supervisor/floodlight_solr.conf /etc/supervisor/conf.d
 sudo cp nginx/floodlight /etc/nginx/sites-available
