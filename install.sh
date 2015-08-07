@@ -13,7 +13,7 @@
 # Install prerequisites - say YES!
 #
 
-sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev libxslt1-dev libxml2-dev postgresql-common python-dev postgresql-client postgresql postgresql-contrib postgis git openjdk-7-jre-headless unzip python-memcache libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev supervisor nginx build-essential
+sudo apt-get install vim python-virtualenv gdal-bin libgeos-dev libpq-dev libxslt1-dev libxml2-dev postgresql-common python-dev postgresql-client postgresql postgresql-contrib postgis git openjdk-7-jre-headless unzip python-memcache libjpeg-dev libfreetype6 libfreetype6-dev zlib1g-dev supervisor nginx build-essential postgresql-9.3-postgis-scripts
 
 # Stop supervisor now because it takes Solr time to stop, so restart does not work right
 
@@ -29,7 +29,7 @@ cd ~/www
 mkdir static media
 
 # TODO remove when storybase is merged
-git clone https://github.com/zmetcalf/storybase.git floodlight
+git clone https://github.com/denverfoundation/storybase.git floodlight
 
 
 cd ~/www/floodlight
