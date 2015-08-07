@@ -1,7 +1,7 @@
 Install script for Storybase on EC2
 ===================================
 
-Start by creating a Debian instance.
+Start by creating a Ubuntu instance.
 
 Login to the instance.
 
